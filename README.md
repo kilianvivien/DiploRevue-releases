@@ -63,17 +63,53 @@ jour automatique. **Vous n'avez pas à les télécharger.**
 <details open>
 <summary><b>macOS</b></summary>
 
+### Installation
+
 1. Ouvrez le fichier `.dmg` téléchargé.
 2. Glissez l'icône **DiploRevue** dans le dossier **Applications**.
-3. **Au tout premier lancement**, faites un **clic droit** sur DiploRevue dans Applications, puis
-   choisissez **Ouvrir**, et confirmez **Ouvrir** dans la fenêtre qui apparaît.
+3. Éjectez l'image disque, puis ouvrez **Applications** et double-cliquez sur **DiploRevue**.
 
-macOS affiche un avertissement au premier lancement parce que l'application n'est pas distribuée
-via l'App Store. C'est attendu. Le clic droit → **Ouvrir** n'est nécessaire que la première fois ;
-ensuite, DiploRevue se lance normalement d'un simple double-clic.
+### Autoriser l'application au premier lancement
 
-Si macOS refuse malgré tout et affirme que l'application « est endommagée », ouvrez le Terminal,
-exécutez cette commande, puis relancez l'application :
+Au tout premier lancement, macOS **bloque** l'application et affiche un message du type
+« *Apple n'a pas pu vérifier que « DiploRevue » ne contient pas de logiciel malveillant* ».
+
+C'est normal et attendu : DiploRevue n'est pas distribuée via l'App Store et n'est pas signée
+avec un certificat de développeur Apple payant. Le message ne signale pas un problème avec le
+fichier que vous avez téléchargé. Voici comment autoriser l'application — **une seule fois** :
+
+1. **Double-cliquez sur DiploRevue.** Le blocage apparaît. Cliquez sur **Terminé**.
+   > ⚠️ Cliquez bien sur **Terminé**, surtout pas sur **Déplacer vers la corbeille**. Cette
+   > première tentative est indispensable : c'est elle qui fait apparaître le bouton
+   > d'autorisation à l'étape suivante.
+2. Ouvrez le menu  (en haut à gauche de l'écran) → **Réglages Système**.
+3. Dans la colonne de gauche, choisissez **Confidentialité et sécurité**.
+4. **Faites défiler jusqu'en bas** de la page, jusqu'à la section **Sécurité**. Vous y lisez :
+   *« « DiploRevue » a été bloqué pour protéger votre Mac. »*
+5. Cliquez sur le bouton **Ouvrir quand même**, à droite de ce message.
+6. Authentifiez-vous avec **Touch ID** ou votre **mot de passe de session**.
+7. Une dernière fenêtre de confirmation s'affiche : cliquez à nouveau sur **Ouvrir quand même**.
+
+DiploRevue s'ouvre, et l'autorisation est mémorisée : **les lancements suivants se font
+normalement, d'un simple double-clic.** Vous n'aurez pas à recommencer, y compris après les
+mises à jour automatiques.
+
+> **Le bouton « Ouvrir quand même » n'apparaît pas ?**
+> Il ne s'affiche que pendant **environ une heure** après la tentative de lancement bloquée, et
+> uniquement si celle-ci a bien eu lieu. Revenez à l'étape 1, double-cliquez sur l'application
+> pour déclencher le blocage, puis retournez immédiatement dans **Confidentialité et sécurité**.
+
+> **Le clic droit → « Ouvrir » ne fonctionne plus.**
+> Cette astuce, très répandue dans les tutoriels plus anciens, a été **supprimée par Apple à
+> partir de macOS 15 Sequoia**. Sur macOS 15, macOS 26 Tahoe et versions ultérieures, le passage
+> par **Réglages Système → Confidentialité et sécurité** décrit ci-dessus est le seul moyen
+> d'autoriser l'application.
+
+### Si macOS affirme que l'application « est endommagée »
+
+Ce message apparaît lorsque l'attribut de quarantaine appliqué aux fichiers téléchargés empêche
+l'ouverture. Ouvrez **Terminal** (Applications → Utilitaires), exécutez la commande suivante,
+saisissez votre mot de passe si demandé, puis relancez DiploRevue :
 
 ```bash
 xattr -dr com.apple.quarantine /Applications/DiploRevue.app
