@@ -8,7 +8,7 @@
 
 [![Dernière version](https://img.shields.io/github/v/release/kilianvivien/DiploRevue-releases?label=derni%C3%A8re%20version&color=blue)](https://github.com/kilianvivien/DiploRevue-releases/releases/latest)
 
-<sub>macOS · Windows · Linux — stockage local, orienté confidentialité</sub>
+<sub>macOS universel · Apple Silicon et Intel — stockage local, orienté confidentialité</sub>
 
 <a href="#quest-ce-que-diplorevue-">Présentation</a> ·
 <a href="#installer-lapplication">Installer</a> ·
@@ -41,24 +41,32 @@ séparément et n'est pas public.
 
 ---
 
+## Nouveautés de la version 2.2.2
+
+- Modèles Mistral : GLM 5.3, Mistral Large 4, DeepSeek V4.1 Flash 1017 et GLM 5.3 Flash disponibles en génération et en traduction.
+- SDK Google GenAI 2.31.0 et dépendances de l’éditeur, des exports et du bureau actualisées.
+- Correctifs de sécurité des dépendances réseau et de test, sans changement du format des données.
+
+[Consulter les notes et télécharger DiploRevue 2.2.2](https://github.com/kilianvivien/DiploRevue-releases/releases/tag/v2.2.2).
+
+---
+
 ## Installer l'application
 
-**1. Téléchargez le fichier correspondant à votre système** depuis la
+**1. Téléchargez le paquet macOS universel** depuis la
 [dernière version](https://github.com/kilianvivien/DiploRevue-releases/releases/latest)
 (section « Assets », en bas de la page).
 
 | Votre système | Fichier à télécharger |
 | --- | --- |
 | **macOS** (Intel et Apple Silicon) | `DiploRevue_<version>_universal.dmg` |
-| **Windows** | `DiploRevue_<version>_x64_en-US.msi` |
-| **Linux** — toutes distributions | `DiploRevue_<version>_amd64.AppImage` |
-| **Linux** — Debian, Ubuntu | `DiploRevue_<version>_amd64.deb` |
-| **Linux** — Fedora, RHEL | `DiploRevue-<version>-1.x86_64.rpm` |
 
 Les autres fichiers de la liste (`.sig`, `.app.tar.gz`) servent uniquement au mécanisme de mise à
 jour automatique. **Vous n'avez pas à les télécharger.**
 
-**2. Suivez les étapes de votre système :**
+Depuis la version 2.0.2, les nouvelles releases distribuent uniquement le paquet macOS universel. Les anciennes versions Windows et Linux restent accessibles dans l’historique des releases.
+
+**2. Installez l’application sur votre Mac :**
 
 <details open>
 <summary><b>macOS</b></summary>
@@ -117,43 +125,6 @@ xattr -dr com.apple.quarantine /Applications/DiploRevue.app
 
 </details>
 
-<details open>
-<summary><b>Windows</b></summary>
-
-1. Ouvrez le fichier `.msi` téléchargé.
-2. Windows SmartScreen affiche probablement un écran bleu « Windows a protégé votre ordinateur ».
-   Cliquez sur **Informations complémentaires**, puis sur **Exécuter quand même**.
-3. Suivez les étapes de l'installateur.
-
-Cet avertissement apparaît parce que l'application n'est pas signée par un certificat commercial.
-Il ne signale pas un problème avec le fichier téléchargé.
-
-</details>
-
-<details open>
-<summary><b>Linux</b></summary>
-
-**AppImage** — fonctionne sur la plupart des distributions, sans installation :
-
-```bash
-chmod +x DiploRevue_*_amd64.AppImage
-./DiploRevue_*_amd64.AppImage
-```
-
-**Debian, Ubuntu et dérivés :**
-
-```bash
-sudo apt install ./DiploRevue_*_amd64.deb
-```
-
-**Fedora, RHEL et dérivés :**
-
-```bash
-sudo dnf install ./DiploRevue-*-1.x86_64.rpm
-```
-
-</details>
-
 ---
 
 ## Mettre à jour
@@ -171,8 +142,7 @@ Quand vous acceptez :
 Vous n'avez donc besoin de revenir sur cette page que pour votre **première** installation, ou pour
 réinstaller l'application depuis zéro.
 
-> Les mises à jour automatiques concernent l'application de bureau. Si vous utilisez DiploRevue
-> dans un navigateur, la version servie est toujours à jour.
+> Les mises à jour automatiques décrites ici concernent l’application macOS.
 
 ---
 
